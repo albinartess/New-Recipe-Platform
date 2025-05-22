@@ -6,7 +6,7 @@ const nextConfig = {
     domains: ['fonts.googleapis.com'],
   },
   experimental: {
-    optimizeCss: true,
+    optimizeCss: false,
   },
   output: 'standalone',
   env: {
