@@ -1,62 +1,102 @@
-# Платформа рецептов
+# Recipe Platform
 
-Веб-приложение для создания, редактирования и хранения рецептов. Построено с использованием Next.js, Supabase и Tailwind CSS.
+A modern web application for sharing and discovering recipes. Built with Next.js, TypeScript, Tailwind CSS, and Supabase.
 
-## Функциональность
+## Features
 
-- Просмотр списка рецептов
-- Создание новых рецептов
-- Редактирование существующих рецептов
-- Удаление рецептов
-- Отображение детальной информации о рецепте (ингредиенты, инструкции, время приготовления)
+- Create, view, and manage recipes
+- Categorize recipes with tags and categories
+- Search and filter recipes
+- Responsive design for all devices
+- Modern and intuitive user interface
 
-## Технологии
+## Tech Stack
 
-- Next.js 14
-- TypeScript
-- Supabase (база данных)
-- Tailwind CSS
-- React
+- **Frontend**: Next.js 14, React, TypeScript
+- **Styling**: Tailwind CSS
+- **Database**: Supabase (PostgreSQL)
+- **Authentication**: Supabase Auth (coming soon)
+- **Deployment**: Vercel
 
-## Установка
+## Getting Started
 
-1. Клонируйте репозиторий:
-```bash
-git clone https://github.com/albinartess/recipe-platform.git
-cd recipe-platform
-```
+### Prerequisites
 
-2. Установите зависимости:
-```bash
-npm install
-```
+- Node.js 18+ and npm
+- Supabase account
 
-3. Создайте файл `.env.local` в корневой директории проекта и добавьте следующие переменные окружения:
-```
+### Environment Variables
+
+Create a `.env.local` file in the root directory with the following variables:
+
+```env
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 ```
 
-4. Запустите приложение в режиме разработки:
-```bash
-npm run dev
-```
+### Installation
 
-5. Откройте [http://localhost:3000](http://localhost:3000) в вашем браузере.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/recipe-platform.git
+   cd recipe-platform
+   ```
 
-## Структура базы данных
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-Таблица `recipes`:
-- id: uuid (primary key)
-- title: text
-- description: text
-- ingredients: jsonb[]
-- instructions: jsonb[]
-- cooking_time: integer
-- servings: integer
-- image_url: text
-- created_at: timestamp with time zone
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-## Лицензия
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-MIT
+## Database Schema
+
+### Recipes Table
+- `id`: UUID (Primary Key)
+- `title`: VARCHAR(255)
+- `description`: TEXT
+- `ingredients`: JSONB
+- `instructions`: TEXT[]
+- `cooking_time`: INTEGER
+- `servings`: INTEGER
+- `difficulty`: VARCHAR(20)
+- `image_url`: TEXT
+- `created_at`: TIMESTAMP
+- `updated_at`: TIMESTAMP
+
+### Categories Table
+- `id`: UUID (Primary Key)
+- `name`: VARCHAR(100)
+- `description`: TEXT
+
+### Tags Table
+- `id`: UUID (Primary Key)
+- `name`: VARCHAR(50)
+
+### Junction Tables
+- `recipe_categories`: Links recipes to categories
+- `recipe_tags`: Links recipes to tags
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Supabase](https://supabase.io/)
+- [TypeScript](https://www.typescriptlang.org/)
